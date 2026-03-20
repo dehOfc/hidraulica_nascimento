@@ -1,5 +1,14 @@
+// Force scroll to top and clear hash on refresh
+if (window.location.hash) {
+    window.history.replaceState(null, null, window.location.pathname + window.location.search);
+}
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+setTimeout(() => window.scrollTo(0, 0), 50);
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -66,10 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbar) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(7, 7, 7, 0.98)';
-                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.90)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.08)';
             } else {
-                navbar.style.background = 'rgba(7, 7, 7, 0.95)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.85)';
                 navbar.style.boxShadow = 'none';
             }
         });
