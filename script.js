@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (content) {
                 if (header.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
                     content.style.padding = '1.5rem 2rem';
+                    content.style.maxHeight = content.scrollHeight + "px";
                 } else {
                     content.style.maxHeight = null;
                     content.style.padding = '0 2rem';
