@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (content) {
                 if (header.classList.contains('active')) {
                     content.style.padding = '1.5rem 2rem';
-                    content.style.maxHeight = content.scrollHeight + "px";
+                    // Adiciona um valor extra para garantir que texto da segunda linha ou margens não fiquem escondidos
+                    content.style.maxHeight = content.scrollHeight + 60 + "px";
                 } else {
                     content.style.maxHeight = null;
                     content.style.padding = '0 2rem';

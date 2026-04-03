@@ -1,4 +1,4 @@
-$root = "c:\Users\55169\.gemini\antigravity\scratch\hidraulica_nascimento"
+$root = $PSScriptRoot
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:8080/")
 $listener.Start()
