@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orçamento Grátis — Nascimento Hidráulica & Desentupidora</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1a3a6b;
+      --blue-mid: #1e4d9b;
+      --blue-light: #2563eb;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --success: #16a34a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 60%, #1e3a8a 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-text { color: white; }
+    .logo-text strong { display: block; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; line-height: 1; }
+    .logo-text span { font-size: 11px; opacity: 0.7; }
+
+    .nav-phone {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 50px;
+      transition: background 0.2s;
+    }
+    .nav-phone:hover { background: rgba(255,255,255,0.2); }
+
+    .hero-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-left {}
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245,158,11,0.2);
+      border: 1px solid rgba(245,158,11,0.4);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    }
+
+    .form-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .form-sub {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-800);
+      background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue-light);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--gray-400); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .service-btn {
+      padding: 10px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-600);
+      background: white;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .service-btn:hover { border-color: var(--blue-light); color: var(--blue); }
+    .service-btn.selected { border-color: var(--blue-light); background: #eff6ff; color: var(--blue); font-weight: 600; }
+    .service-btn .svc-icon { font-size: 15px; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(217,119,6,0.4); }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+    .form-footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray-400);
+      margin-top: 12px;
+    }
+
+    /* ── SUCCESS ── */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: #dcfce7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+
+    .success-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--success);
+      margin-bottom: 8px;
+    }
+
+    .success-sub { font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-bottom: 24px; }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .whatsapp-btn:hover { background: #1ebe5d; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 24px;
+    }
+
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+
+    .trust-item span { font-size: 18px; }
+
+    /* ── SERVICES SECTION ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--blue-light);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      color: var(--blue);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .services-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .svc-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .svc-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .svc-card.featured { border-color: var(--blue-light); box-shadow: 0 0 0 1px var(--blue-light); }
+
+    .svc-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+    .svc-name { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+    .svc-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+    .featured-tag { font-size: 10px; font-weight: 700; background: #eff6ff; color: var(--blue-light); padding: 2px 8px; border-radius: 50px; margin-left: 8px; }
+
+    /* ── CTA BOTTOM ── */
+    .cta-bottom {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .cta-bottom h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-bottom p {
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-wpp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .btn-scroll {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-800);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-body { grid-template-columns: 1fr; gap: 32px; padding: 32px 20px 48px; }
+      .services-cards { grid-template-columns: 1fr 1fr; }
+      .trust-inner { gap: 16px; }
+      .nav-phone { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .services-cards { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 20px; }
+    }
+
+    /* ── LOADING SPINNER ── */
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="hero">
+    <nav class="nav">
+      <a href="https://nascimentohidraulicarp.com.br" class="logo">
+        <div class="logo-icon">🔧</div>
+        <div class="logo-text">
+          <strong>NASCIMENTO</strong>
+          <span>Hidráulica & Desentupidora</span>
+        </div>
+      </a>
+      <a href="tel:+5512982231477" class="nav-phone">📞 (12) 98223-1477</a>
+    </nav>
+
+    <!-- HERO BODY -->
+    <div class="hero-body">
+      <div class="hero-left">
+        <div class="badge">⚡ Atendimento em até 1 hora</div>
+        <h1 class="hero-title">
+          Receba um orçamento <span>grátis</span> ainda hoje
+        </h1>
+        <p class="hero-sub">
+          Especialistas em caça vazamento, desentupimento e hidráulica em Ribeirão Preto.
+          Visita gratuita, sem compromisso, 24 horas por dia.
+        </p>
+        <div class="pills">
+          <div class="pill"><div class="pill-dot"></div>Visita grátis</div>
+          <div class="pill"><div class="pill-dot"></div>Sem quebra-quebra</div>
+          <div class="pill"><div class="pill-dot"></div>Plantão 24h</div>
+          <div class="pill"><div class="pill-dot"></div>Garantia de serviço</div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-card" id="form-card">
+        <div id="form-content">
+          <div class="form-title">Solicite seu orçamento</div>
+          <div class="form-sub">Preencha abaixo — retornamos em até 1 hora</div>
+
+          <div class="form-group">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" placeholder="Ex: João Silva" required />
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" placeholder="(16) 99999-9999" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span style="color:var(--gray-400);font-weight:400">(opcional)</span></label>
+            <input type="email" id="email" placeholder="seu@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label>Qual serviço você precisa?</label>
+            <div class="services-grid">
+              <button type="button" class="service-btn" onclick="selectService(this, 'Caça Vazamento')">
+                <span class="svc-icon">🔍</span> Caça Vazamento
+              </button>
+              <button type="button" class="service-btn" onclick="selectService(this, 'Desentupimento')">
+                <span class="svc-icon">🚿</span> Desentupimento
+              </button>
+              <button type="button" class="service-btn" onclick="selectService(this, 'Troca de Válvula')">
+                <span class="svc-icon">🔩</span> Troca de Válvula
+              </button>
+              <button type="button" class="service-btn" onclick="selectService(this, 'Caixa D água')">
+                <span class="svc-icon">💧</span> Caixa D'água
+              </button>
+              <button type="button" class="service-btn" onclick="selectService(this, 'Torneiras e Registros')">
+                <span class="svc-icon">🚰</span> Torneiras
+              </button>
+              <button type="button" class="service-btn" onclick="selectService(this, 'Instalação Hidráulica')">
+                <span class="svc-icon">🏗️</span> Instalação
+              </button>
+            </div>
+          </div>
+
+          <button class="submit-btn" id="submit-btn" onclick="enviarLead()">
+            Quero meu orçamento grátis →
+          </button>
+          <div class="form-footer">🔒 Seus dados estão seguros. Sem spam.</div>
+        </div>
+
+        <div class="success-screen" id="success-screen">
+          <div class="success-icon">✅</div>
+          <div class="success-title">Solicitação recebida!</div>
+          <div class="success-sub">
+            Recebemos seu pedido e entraremos em contato pelo WhatsApp <strong>em até 1 hora</strong>.<br/>
+            Prefere falar agora? Chame direto:
+          </div>
+          <a href="https://wa.me/5512982231477" class="whatsapp-btn" target="_blank">
+            💬 Chamar no WhatsApp agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span>⭐</span> +500 clientes atendidos</div>
+      <div class="trust-item"><span>🕐</span> Resposta em até 1 hora</div>
+      <div class="trust-item"><span>🛡️</span> Garantia em todos os serviços</div>
+      <div class="trust-item"><span>📍</span> Ribeirão Preto e região</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="section-label">O que fazemos</div>
+    <h2 class="section-title">Serviços especializados em hidráulica</h2>
+    <div class="services-cards">
+      <div class="svc-card featured">
+        <span class="svc-emoji">🔍</span>
+        <div class="svc-name">Caça Vazamento <span class="featured-tag">Premium</span></div>
+        <div class="svc-desc">Identificamos vazamentos ocultos com tecnologia de ultrassom, sem quebra-quebra desnecessário.</div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🚿</span>
+        <div class="svc-name">Desentupimento</div>
+        <div class="svc-desc">Desobstrução rápida de ralos, pias, vasos e redes de esgoto com equipamentos de ponta.</div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🔩</span>
+        <div class="svc-name">Troca de Válvula Hidra</div>
+        <div class="svc-desc">Manutenção e troca de válvulas de descarga com total agilidade e garantia.</div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">💧</span>
+        <div class="svc-name">Caixa D'água</div>
+        <div class="svc-desc">Higienização e troca de caixas d'água com qualidade e segurança para sua família.</div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🚰</span>
+        <div class="svc-name">Torneiras e Registros</div>
+        <div class="svc-desc">Reparos de torneiras, misturadores e registros, eliminando desperdícios de água.</div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🏗️</span>
+        <div class="svc-name">Instalações Hidráulicas</div>
+        <div class="svc-desc">Reparos completos, troca de tubulações e manutenção preventiva da rede de água.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-bottom">
+    <h2>Problema urgente? Estamos de plantão 24h</h2>
+    <p>Ribeirão Preto e região — visita grátis, orçamento sem compromisso</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5512982231477" class="btn-wpp" target="_blank">
+        💬 Chamar no WhatsApp
+      </a>
+      <button class="btn-scroll" onclick="document.getElementById('nome').focus(); window.scrollTo({top:0,behavior:'smooth'})">
+        📋 Solicitar orçamento
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Hidráulica e Desentupidora Nascimento · Ribeirão Preto, SP · (12) 98223-1477
+  </footer>
+
+  <script>
+    let servicoSelecionado = '';
+
+    function selectService(btn, servico) {
+      document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      servicoSelecionado = servico;
+    }
+
+    async function enviarLead() {
+      const nome = document.getElementById('nome').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!nome) { alert('Por favor, informe seu nome.'); return; }
+      if (!whatsapp) { alert('Por favor, informe seu WhatsApp.'); return; }
+      if (!servicoSelecionado) { alert('Por favor, selecione o serviço que precisa.'); return; }
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner"></div> Enviando...';
+
+      const payload = {
+        nome,
+        email: email || 'nao-informado@lead.com',
+        whatsapp: whatsapp.replace(/\D/g, ''),
+        interesse: servicoSelecionado,
+        origem: 'Landing Page — Nascimento Hidráulica',
+        url: window.location.href
+      };
+
+      try {
+        await fetch('https://andre04ofc.app.n8n.cloud/webhook-test/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          mode: 'no-cors'
+        });
+      } catch (e) {
+        console.log('Webhook enviado (no-cors)');
+      }
+
+      // Mostrar tela de sucesso
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('success-screen').style.display = 'block';
+
+      // GA / Meta Pixel event (se existir)
+      if (window.gtag) gtag('event', 'lead', { event_category: 'formulario' });
+      if (window.fbq) fbq('track', 'Lead');
+    }
+
+    // Máscara de telefone
+    document.getElementById('whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '').substring(0, 11);
+      if (v.length >= 7) v = '(' + v.substring(0,2) + ') ' + v.substring(2,7) + '-' + v.substring(7);
+      else if (v.length >= 3) v = '(' + v.substring(0,2) + ') ' + v.substring(2);
+      else if (v.length > 0) v = '(' + v;
+      e.target.value = v;
+    });
+  </script>
+</body>
+</html>
